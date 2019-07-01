@@ -1,0 +1,18 @@
+body {
+  /*background: steelblue;*/
+  background-image: url(./imgs/sora.jpg);
+}
+
+h3#h3color {
+  color: red;
+}
+
+.h3colorclass {
+  color: blue;
+}
+
+#airplaneimg {
+  visibility: hidden;
+  position: relative;
+  left: 200px;
+}

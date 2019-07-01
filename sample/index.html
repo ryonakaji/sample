@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta cahrset="utf-8">
+    <title>sampleHTMLです</title>
+    <link rel="stylesheet" href="./sample.css">
+  </head>
+  <body>
+    こんにちは
+    <h1>h1こんにちは</h1>
+    <h2>h2こんにちは</h2>
+    <h3>h3こんにちは</h3>
+    <h3>h3こんにちは
+    改行してみました</h3>
+    <!-- <h3>h3こんにちはコメントアウトしてみます</h3> -->
+    <h3 id="h3color">h3こんにちは色を変えてみた</h3>
+    <h3 class="h3colorclass">h3こんにちは色を変えてみた</h3>
+    <h4 class="h3colorclass">h4こんにちは色を変えてみた</h4>
+    <img src="./imgs/airplane.png" id="airplaneimg" width="250" height="250" alt="飛行機の写真" title="空と飛行機">
+    <button id="btn">表示</button>
+    <p>
+      <input type="button" value="スタート" onclick="moveImg()">
+      <input type="button" value="ストップ" onclick="stopImg()">
+    </p>
+  </body>
+</html>
+<script type="text/javascript">
+/*var btn = document.getElementById('btn');
+btn.addEventListener('click', function() {
+    console.log('クリックされました！');
+}, false);*/
+var btn = document.getElementById('btn');
+btn.addEventListener('click', function() {
+    console.log('クリックされました！');
+    //document.write('<img src="./imgs/airplane.png" width="250" height="250" alt="飛行機の写真" title="空と飛行機">')
+    document.getElementById("airplaneimg").style.visibility="visible";
+}, false);
+
+
+var time; //タイマーＩＤ用
+var flg=0; //二重起動防止フラグ
+var x=200; //ｘ座標
+ 
+function moveImg() {
+if(flg==1){
+//flgが1ならば、処理を中断
+return;
+}else{
+//flgがゼロならば、flgに１を代入して処理を継続
+flg=1;
+}
+ 
+time = setInterval(function(){
+//x座標に+1
+x-=5;
+ 
+//変数ｘの値をCSSに適用
+document.getElementById("airplaneimg").style.left = x + "px";
+ 
+//変数ｘの値を確認
+document.getElementById("debug").innerHTML=x;
+},100);
+}
+ 
+function stopImg() {
+//タイマー処理を解除し、flgにゼロを代入
+clearInterval(time);
+            flg=0;
+}
+
+</script>
